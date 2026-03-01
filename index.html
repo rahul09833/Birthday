@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Wish ✨</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://images.unsplash.com/photo-1532693322450-2cb5c511067d?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Georgia', serif;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            color: white;
+        }
+
+        h1 { color: #ffd700; margin-bottom: 20px; font-size: 2rem; }
+        
+        /* The Wishes Paragraph Style */
+        .wishes {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #f0f0f0;
+            text-align: center;
+            font-style: italic;
+            animation: fadeIn 2s ease;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ffd700, #ffa500);
+            color: #000;
+            transition: 0.3s;
+        }
+
+        button:hover { transform: scale(1.05); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #surpriseArea { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div id="initialView">
+            <h1>Happy Birthday! ✨</h1>
+            <p>I have a small message for you tonight...</p>
+            <button onclick="reveal()">Open Message ❤️</button>
+        </div>
+
+        <div id="surpriseArea">
+            <h1>For You... 🌙</h1>
+            <p class="wishes">
+                "On this special day, I just wanted to wish you a year filled with as much light and beauty as the moon above us. You have a heart of gold and a spirit that brightens everyone's day. May all your dreams take flight and may your journey ahead be full of happiness, laughter, and endless success. Happy Birthday to an truly amazing and sweet friend!"
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function reveal() {
+            // Elegant gold/silver confetti
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ffd700', '#ffffff']
+            });
+
+            document.getElementById('initialView').style.display = 'none';
+            document.getElementById('surpriseArea').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
